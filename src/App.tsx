@@ -2,8 +2,8 @@ import Entry from "./components/Entry";
 
 const App = () => {
   return (
-    <div className="mx-2 my-2">
-      <div className="flex items-center justify-between">
+    <main className="p-1">
+      <div className="flex items-center justify-between bg-green-400">
         <h1 className="text-xl font-bold">Your countdowns</h1>
         <i className="ri-add-fill ri-2x"></i>
       </div>
@@ -15,7 +15,7 @@ const App = () => {
         <Entry />
         <Entry />
       </div>
-    </div>
+    </main>
   );
 };
 
