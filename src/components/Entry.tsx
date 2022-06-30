@@ -1,30 +1,41 @@
+// Dependency imports
+import { Heading, Text } from "@chakra-ui/react";
+
 const Entry = () => {
   return (
-    <section className="flex justify-between rounded bg-red-400 p-2 text-white">
+    <section className="flex rounded bg-red-400 p-2 text-white">
       <div>
-        <h1 className="text-xl font-bold">Christmas</h1>
-        <p className="text-sm">25/12/2023</p>
+        <Heading size="lg">Christmas 🎄</Heading>
+        <Text fontSize="sm">25/12/2023</Text>
       </div>
 
-      <div className="ml-auto mr-0.5 flex items-center justify-center font-bold">
-        <p className="text-xl">212</p>
-        &nbsp;
-        <sub className="text-neutral-200">d</sub>
-        &nbsp;
-        <p className="text-xl">13</p>
-        &nbsp;
-        <sub className="text-neutral-200">h</sub>
-        &nbsp;
-        <p className="text-xl">49</p>
-        &nbsp;
-        <sub className="text-neutral-200">m</sub>
-        &nbsp;
-        <p className="text-xl">32</p>
-        &nbsp;
-        <sub className="text-neutral-200">s</sub>
+      <div className="ml-auto mr-2 flex items-center space-x-4 font-bold">
+        {/* Days */}
+        <span className="flex flex-col items-center">
+          <Text fontSize="lg">212</Text>
+          <Text fontSize="xs">d</Text>
+        </span>
+
+        {/* Hours */}
+        <span className="flex flex-col items-center">
+          <Text fontSize="lg">13</Text>
+          <Text fontSize="xs">h</Text>
+        </span>
+
+        {/* Minutes */}
+        <span className="flex flex-col items-center">
+          <Text fontSize="lg">49</Text>
+          <Text fontSize="xs">m</Text>
+        </span>
+
+        {/* Seconds */}
+        <span className="flex flex-col items-center">
+          <Text fontSize="lg">0</Text>
+          <Text fontSize="xs">s</Text>
+        </span>
       </div>
 
-      <div className="ml-0.5 flex items-center justify-center">
+      <div className="ml-2 flex items-center justify-center">
         <i className="ri-more-2-fill ri-lg"></i>
       </div>
     </section>
