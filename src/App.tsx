@@ -10,6 +10,7 @@ import {
   Select,
   Text,
   Button,
+  FormLabel,
 } from "@chakra-ui/react";
 
 // Component imports
@@ -33,17 +34,20 @@ const App = () => {
             <i className="ri-close-fill ri-2x" onClick={onClose}></i>
           </div>
           <ModalBody>
-            <Input placeholder="Title" />
+            <FormLabel htmlFor="title">Title</FormLabel>
+            <Input placeholder="Christmas 🎄" />
 
             <br />
             <br />
 
+            <FormLabel htmlFor="Date">Date</FormLabel>
             <Input type="date" />
 
             <br />
             <br />
 
-            <Select placeholder="Color">
+            <FormLabel htmlFor="color">Color</FormLabel>
+            <Select placeholder="Select">
               <option value="blue">Blue</option>
               <option value="green">Green</option>
               <option value="orange">Orange</option>
@@ -55,11 +59,10 @@ const App = () => {
             </Select>
 
             <br />
-            <br />
 
             <Button colorScheme="green" w="100%">
-              <Text fontSize="lg">Add</Text>
-              {/* <i className="ri-check-fill"></i> */}
+              {/* <Text fontSize="lg">Add</Text> */}
+              <i className="ri-check-fill ri-lg"></i>
             </Button>
           </ModalBody>
         </ModalContent>
