@@ -2,7 +2,7 @@ import Entry from "./components/Entry";
 
 const App = () => {
   return (
-    <main className="p-1">
+    <main className="min-w-max p-1">
       <div className="flex items-center justify-between bg-green-400">
         <h1 className="text-xl font-bold">Your countdowns</h1>
         <i className="ri-add-fill ri-2x"></i>
