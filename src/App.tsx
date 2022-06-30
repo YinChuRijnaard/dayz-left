@@ -71,9 +71,22 @@ const App = () => {
       <br />
 
       <div className="space-y-1">
-        <Entry />
-        <Entry />
-        <Entry />
+        <Entry
+          title={"Christmas"}
+          date={"25/12/2023"}
+          days={"212"}
+          hours={"23"}
+          minutes={"49"}
+          seconds={"0"}
+        />
+        <Entry
+          title={"Birthday"}
+          date={"02/09/2023"}
+          days={"126"}
+          hours={"08"}
+          minutes={"59"}
+          seconds={"12"}
+        />
       </div>
     </main>
   );
