@@ -2,12 +2,13 @@
 import { Heading, Text } from "@chakra-ui/react";
 
 interface EntryProps {
+  id: string;
   title: string;
   date: string;
-  days: string;
-  hours: string;
-  minutes: string;
-  seconds: string;
+  days?: number;
+  hours?: number;
+  minutes?: number;
+  seconds?: number;
 }
 
 const Entry = (props: EntryProps) => {
