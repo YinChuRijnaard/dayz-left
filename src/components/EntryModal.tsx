@@ -16,37 +16,43 @@ import {
 } from "@chakra-ui/react";
 
 const EntryModal = () => {
-  // const [title, setTitle] = useState<string>("");
-  // const [date, setDate] = useState<string>("");
-  // const [color, setColor] = useState<string>("");
-  const [countdownDetails, setCountdownDetails] = useState({
-    title: "",
-    date: "",
-    color: "",
-  });
+  // cd === countdown
+  // const [cdDetails, setCdDetails] = useState([]);
+  const [cdRaw, setCdRaw] = useState([]);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handleChange = (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const target = e.target;
-    const name = target.name;
-    const value = target.value;
-
-    setCountdownDetails((prevCountdownDetails) => {
+  const updateTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCdRaw((prevCdRaw) => {
       return {
-        ...prevCountdownDetails,
-        [name]: target.value,
+        ...prevCdRaw,
+        title: e.target.value,
       };
     });
-
-    console.log(countdownDetails);
   };
 
-  const handleSubmit = () => console.log(countdownDetails);
+  const updateDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCdRaw((prevCdRaw) => {
+      return {
+        ...prevCdRaw,
+        date: e.target.value,
+      };
+    });
+  };
+
+  const updateColor = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCdRaw((prevCdRaw) => {
+      return {
+        ...prevCdRaw,
+        color: e.target.value,
+      };
+    });
+  };
+
+  const handleSubmit = () => {
+    // console.log("Works???");
+    console.log(cdRaw);
+  };
 
   return (
     <>
@@ -66,8 +72,7 @@ const EntryModal = () => {
             <div>
               <FormLabel htmlFor="title">Title</FormLabel>
               <Input
-                value={countdownDetails.title}
-                onChange={handleChange}
+                onChange={updateTitle}
                 name="title"
                 placeholder="Christmas 🎄"
               />
@@ -76,23 +81,13 @@ const EntryModal = () => {
             {/* Date */}
             <div>
               <FormLabel htmlFor="Date">Date</FormLabel>
-              <Input
-                value={countdownDetails.date}
-                onChange={handleChange}
-                name="date"
-                type="date"
-              />
+              <Input onChange={updateDate} name="date" type="date" />
             </div>
 
             {/* Color */}
             <div>
               <FormLabel htmlFor="color">Color</FormLabel>
-              <Select
-                value={countdownDetails.color}
-                onChange={handleChange}
-                name="color"
-                placeholder="Select"
-              >
+              <Select onChange={updateColor} name="color" placeholder="Select">
                 <option value="#4299E1">Blue</option>
                 <option value="#48BB78">Green</option>
                 <option value="#ED8936">Orange</option>

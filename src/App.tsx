@@ -14,21 +14,6 @@ import EntryModal from "./components/EntryModal";
 
 const App = () => {
   // const [days, hours, minutes, seconds] = useCountdown(new Date(2022, 11, 25));
-  const [countdowns, setCountdowns] = useState([]);
-
-  // const countdownsMap = countdowns.map((cd) => {
-  //   return (
-  //     <Entry
-  //       id={cd.id}
-  //       title={cd.title}
-  //       date={cd.date}
-  //       days={days}
-  //       hours={hours}
-  //       minutes={minutes}
-  //       seconds={seconds}
-  //     />
-  //   );
-  // });
 
   return (
     <main className="min-w-max p-1">
@@ -40,7 +25,6 @@ const App = () => {
       <br />
 
       <div className="space-y-1">
-        {/* {countdownsMap} */}
         <Heading size="lg">Add your first countdown</Heading>
       </div>
     </main>
@@ -48,3 +32,27 @@ const App = () => {
 };
 
 export default App;
+
+// const handleSubmit = () => {
+//   console.log("Works???");
+
+//   const countdownDetailsArr = new Array(countdownDetails);
+
+//   const countdownsMapped = countdownDetailsArr.map((cd) => {
+//     return <Entry id={nanoid()} title={cd.title} date={cd.date} />;
+//   });
+// };
+
+// const countdownsMap = countdowns.map((cd) => {
+//   return (
+//     <Entry
+//       id={cd.id}
+//       title={cd.title}
+//       date={cd.date}
+//       days={days}
+//       hours={hours}
+//       minutes={minutes}
+//       seconds={seconds}
+//     />
+//   );
+// });
