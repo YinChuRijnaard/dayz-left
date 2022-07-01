@@ -1,69 +1,70 @@
 // Dependency imports
 import {
+  FormLabel,
+  Input,
+  Heading,
   Modal,
   ModalOverlay,
-  ModalContent,
-  ModalBody,
   useDisclosure,
-  Heading,
-  Input,
   Select,
-  Text,
+  ModalContent,
   Button,
-  FormLabel,
 } from "@chakra-ui/react";
 
-interface EntryModalProps {
-  isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
-}
-
-const EntryModal = (props: EntryModalProps) => {
+const EntryModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <ModalOverlay />
-      <ModalContent>
-        <div className="mx-6 flex items-center justify-between p-1">
-          <Heading size="lg">Add countdown</Heading>
-          <i className="ri-close-fill ri-2x" onClick={onClose}></i>
-        </div>
-        <ModalBody>
-          <FormLabel htmlFor="title">Title</FormLabel>
-          <Input placeholder="Christmas 🎄" />
+    <>
+      <i className="ri-add-fill ri-2x" onClick={onOpen}></i>
 
-          <br />
-          <br />
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
 
-          <FormLabel htmlFor="Date">Date</FormLabel>
-          <Input type="date" />
+        <ModalContent>
+          <div className="m-4 space-y-4">
+            <div className="flex items-center justify-between">
+              <Heading size="lg">New countdown</Heading>
+              <i className="ri-close-fill ri-2x" onClick={onClose}></i>
+            </div>
 
-          <br />
-          <br />
+            {/* Title */}
+            <div>
+              <FormLabel htmlFor="title">Title</FormLabel>
+              <Input placeholder="Christmas 🎄" />
+            </div>
 
-          <FormLabel htmlFor="color">Color</FormLabel>
-          <Select placeholder="Select">
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="orange">Orange</option>
-            <option value="pink">Pink</option>
-            <option value="purple">Purple</option>
-            <option value="red">Red</option>
-            <option value="rose">Rose</option>
-            <option value="yellow">Yellow</option>
-          </Select>
+            {/* Date */}
+            <div>
+              <FormLabel htmlFor="Date">Date</FormLabel>
+              <Input type="date" />
+            </div>
 
-          <br />
+            {/* Color */}
+            <div>
+              <FormLabel htmlFor="color">Color</FormLabel>
+              <Select placeholder="Select">
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="orange">Orange</option>
+                <option value="pink">Pink</option>
+                <option value="purple">Purple</option>
+                <option value="red">Red</option>
+                <option value="rose">Rose</option>
+                <option value="yellow">Yellow</option>
+              </Select>
+            </div>
 
-          <Button colorScheme="green" w="100%">
-            {/* <Text fontSize="lg">Add</Text> */}
-            <i className="ri-check-fill ri-lg"></i>
-          </Button>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
+            {/* Add */}
+            <div>
+              <Button colorScheme="green" w="100%">
+                <i className="ri-check-fill ri-lg"></i>
+              </Button>
+            </div>
+          </div>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
 

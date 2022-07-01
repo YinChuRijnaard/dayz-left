@@ -1,35 +1,17 @@
 // Dependency imports
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalBody,
-  useDisclosure,
-  Heading,
-  Input,
-  Select,
-  Text,
-  Button,
-  FormLabel,
-} from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 
 // Component imports
 import Entry from "./components/Entry";
 import EntryModal from "./components/EntryModal";
 
 const App = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   return (
     <main className="min-w-max select-none p-1">
       <div className="flex items-center justify-between">
         <Heading size="lg">Your countdowns</Heading>
-        <i className="ri-add-fill ri-2x" onClick={onOpen}></i>
+        <EntryModal />
       </div>
-
-      {isOpen ? (
-        <EntryModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
-      ) : null}
 
       <br />
 
