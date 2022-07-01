@@ -7,7 +7,7 @@ import EntryModal from "./components/EntryModal";
 
 const App = () => {
   return (
-    <main className="min-w-max select-none p-1">
+    <main className="min-w-max p-1">
       <div className="flex items-center justify-between">
         <Heading size="lg">Your countdowns</Heading>
         <EntryModal />
