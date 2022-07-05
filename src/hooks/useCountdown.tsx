@@ -19,7 +19,7 @@ const useCountdown = (targetDate: any) => {
   return getReturnValues(countdown);
 };
 
-const getReturnValues = (countdown: number) => {
+const getReturnValues = (countdown: any) => {
   const days = Math.floor(countdown / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
     (countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)

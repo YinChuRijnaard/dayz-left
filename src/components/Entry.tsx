@@ -1,17 +1,18 @@
 // Dependency imports
 import { Heading, Text } from "@chakra-ui/react";
 
+// Hook imports
+import { useCountdown } from "../hooks/useCountdown";
+
 interface EntryProps {
   id: string;
   title: string;
   date: string;
-  days?: number;
-  hours?: number;
-  minutes?: number;
-  seconds?: number;
 }
 
 const Entry = (props: EntryProps) => {
+  const [days, hours, minutes, seconds] = useCountdown(props.date);
+
   return (
     <section className="flex rounded bg-red-400 p-2 text-white">
       <div>
@@ -22,25 +23,25 @@ const Entry = (props: EntryProps) => {
       <div className="ml-auto mr-2 flex items-center space-x-4 font-bold">
         {/* Days */}
         <span className="flex flex-col items-center">
-          <Text fontSize="lg">{props.days}</Text>
+          <Text fontSize="lg">{days}</Text>
           <Text fontSize="xs">d</Text>
         </span>
 
         {/* Hours */}
         <span className="flex flex-col items-center">
-          <Text fontSize="lg">{props.hours}</Text>
+          <Text fontSize="lg">{hours}</Text>
           <Text fontSize="xs">h</Text>
         </span>
 
         {/* Minutes */}
         <span className="flex flex-col items-center">
-          <Text fontSize="lg">{props.minutes}</Text>
+          <Text fontSize="lg">{minutes}</Text>
           <Text fontSize="xs">m</Text>
         </span>
 
         {/* Seconds */}
         <span className="flex flex-col items-center">
-          <Text fontSize="lg">{props.seconds}</Text>
+          <Text fontSize="lg">{seconds}</Text>
           <Text fontSize="xs">s</Text>
         </span>
       </div>

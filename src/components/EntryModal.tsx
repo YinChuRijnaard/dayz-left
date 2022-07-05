@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // Dependency imports
-import { nanoid } from "nanoid";
+import toast from "react-hot-toast";
 import {
   FormLabel,
   Input,
@@ -14,56 +14,44 @@ import {
   ModalContent,
   Button,
 } from "@chakra-ui/react";
+
+// Store imports
 import useCountdownStore from "../store/CountdownStore";
 
 const EntryModal = () => {
-  // cd === countdown
-  const addtoDo = useCountdownStore((state) => state.addCountdown);
-  const [cdRaw, setCdRaw] = useState([]);
+  const [entry, setEntry] = useState({
+    id: "1",
+    title: "",
+    date: "",
+    color: "",
+  });
+
+  const addCountdown = useCountdownStore((state) => state.addCountdown);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const updateTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCdRaw((prevCdRaw) => {
+  const handleChange = (e: any) => {
+    setEntry((prevEntry) => {
       return {
-        ...prevCdRaw,
-        title: e.target.value,
+        ...prevEntry,
+        [e.target.name]: e.target.value,
       };
     });
-  };
-
-  const updateDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCdRaw((prevCdRaw) => {
-      return {
-        ...prevCdRaw,
-        date: e.target.value,
-      };
-    });
-  };
-
-  const updateColor = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setCdRaw((prevCdRaw) => {
-      return {
-        ...prevCdRaw,
-        color: e.target.value,
-      };
-    });
+    console.log(entry);
   };
 
   const handleSubmit = () => {
-    // console.log("Works???");
-    console.log(cdRaw);
-    addtoDo(cdRaw);
-    console.log(addtoDo);
+    if (entry.title.length > 0) {
+      addCountdown(entry);
+      onClose();
+    } else {
+      toast.error("Title is empty");
+    }
   };
 
   return (
     <>
-      <i
-        className="ri-add-fill ri-2x"
-        onClick={onOpen}
-        style={{ cursor: "pointer" }}
-      ></i>
+      <i className="ri-add-fill ri-2x cursor-pointer" onClick={onOpen}></i>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -79,8 +67,8 @@ const EntryModal = () => {
             <div>
               <FormLabel htmlFor="title">Title</FormLabel>
               <Input
-                onChange={updateTitle}
                 name="title"
+                onChange={handleChange}
                 placeholder="Christmas 🎄"
               />
             </div>
@@ -88,13 +76,13 @@ const EntryModal = () => {
             {/* Date */}
             <div>
               <FormLabel htmlFor="Date">Date</FormLabel>
-              <Input onChange={updateDate} name="date" type="date" />
+              <Input name="date" onChange={handleChange} type="date" />
             </div>
 
             {/* Color */}
             <div>
               <FormLabel htmlFor="color">Color</FormLabel>
-              <Select onChange={updateColor} name="color" placeholder="Select">
+              <Select name="color" onChange={handleChange} placeholder="Select">
                 <option value="#4299E1">Blue</option>
                 <option value="#48BB78">Green</option>
                 <option value="#ED8936">Orange</option>

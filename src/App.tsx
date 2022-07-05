@@ -1,19 +1,21 @@
-// Framework elements
-import { useState } from "react";
-
 // Dependency imports
-import { nanoid } from "nanoid";
+import { Toaster } from "react-hot-toast";
 import { Heading } from "@chakra-ui/react";
 
-// Hook imports
-import { useCountdown } from "./hooks/useCountdown";
+// Store imports
+import useCountdownStore from "./store/CountdownStore";
 
 // Component imports
 import Entry from "./components/Entry";
 import EntryModal from "./components/EntryModal";
 
 const App = () => {
-  // const [days, hours, minutes, seconds] = useCountdown(new Date(2022, 11, 25));
+  // cd === countdown
+  const { countdowns } = useCountdownStore();
+
+  const countdownsMapped = countdowns.map((cd) => {
+    return <Entry key={cd.id} id={cd.id} title={cd.title} date={cd.date} />;
+  });
 
   return (
     <main className="min-w-max p-1">
@@ -25,34 +27,16 @@ const App = () => {
       <br />
 
       <div className="space-y-1">
-        <Heading size="lg">Add your first countdown</Heading>
+        {countdowns.length > 0 ? (
+          countdownsMapped
+        ) : (
+          <Heading size="lg">Add your first countdown</Heading>
+        )}
       </div>
+
+      <Toaster />
     </main>
   );
 };
 
 export default App;
-
-// const handleSubmit = () => {
-//   console.log("Works???");
-
-//   const countdownDetailsArr = new Array(countdownDetails);
-
-//   const countdownsMapped = countdownDetailsArr.map((cd) => {
-//     return <Entry id={nanoid()} title={cd.title} date={cd.date} />;
-//   });
-// };
-
-// const countdownsMap = countdowns.map((cd) => {
-//   return (
-//     <Entry
-//       id={cd.id}
-//       title={cd.title}
-//       date={cd.date}
-//       days={days}
-//       hours={hours}
-//       minutes={minutes}
-//       seconds={seconds}
-//     />
-//   );
-// });
