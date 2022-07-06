@@ -43,6 +43,7 @@ const EntryModal = () => {
     if (entry.title.length > 0 && entry.date && entry.color) {
       addCountdown(entry);
       onClose();
+      toast.success("Countdown added");
     } else {
       toast.error("Please fill out all the details");
     }
@@ -59,7 +60,10 @@ const EntryModal = () => {
           <div className="m-4 space-y-4">
             <div className="flex items-center justify-between">
               <Heading size="lg">New countdown</Heading>
-              <i className="ri-close-fill ri-2x" onClick={onClose}></i>
+              <i
+                className="ri-close-fill ri-2x cursor-pointer"
+                onClick={onClose}
+              ></i>
             </div>
 
             {/* Title */}
@@ -68,7 +72,7 @@ const EntryModal = () => {
               <Input
                 name="title"
                 onChange={handleChange}
-                placeholder="Christmas 🎄"
+                placeholder="e.g., Christmas 🎄"
               />
             </div>
 

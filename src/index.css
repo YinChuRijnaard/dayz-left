@@ -4,6 +4,10 @@
 
 @layer base {
   body {
-    @apply h-screen w-screen select-none overflow-x-hidden bg-[#fcf0e5];
+    @apply h-full w-screen select-none overflow-x-hidden;
+  }
+
+  html {
+    @apply bg-[#fcf0e5];
   }
 }

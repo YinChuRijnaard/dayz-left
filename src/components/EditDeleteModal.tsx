@@ -35,13 +35,13 @@ const EditDeleteModal = (props: EditDeleteProps) => {
         <ModalContent>
           <div className="m-4 flex justify-evenly">
             {/* Edit */}
-            <Button colorScheme="gray" size="lg">
+            <Button colorScheme="blue" size="lg">
               <i className="ri-edit-fill ri-lg"></i>
             </Button>
 
             {/* Delete */}
             <Button onClick={handleDelete} colorScheme="red" size="lg">
-              <i className="ri-delete-bin-2-fill ri-lg"></i>
+              <i className="ri-delete-bin-2-fill ri-lg cursor-pointer"></i>
             </Button>
           </div>
         </ModalContent>

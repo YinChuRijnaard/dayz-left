@@ -26,7 +26,7 @@ const App = () => {
   });
 
   return (
-    <main className="h-screen min-w-max bg-[#fcf0e5] p-1">
+    <main className="min-h-max min-w-max bg-[#fcf0e5] p-1 md:py-8 md:px-64">
       <div className="flex items-center justify-between">
         <Heading size="lg">Your countdowns</Heading>
         <EntryModal />
@@ -54,3 +54,7 @@ const App = () => {
 };
 
 export default App;
+
+// Why does the bg property not work as expected...
+// Why does h-full work (unless there's more countdowns)...
+// Why does h-screen not work (unless there's more countdowns)...
