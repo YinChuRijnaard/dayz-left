@@ -4,6 +4,9 @@ import { Heading, Text } from "@chakra-ui/react";
 // Hook imports
 import { useCountdown } from "../hooks/useCountdown";
 
+// Component imports
+import EditDeleteModal from "./EditDeleteModal";
+
 interface EntryProps {
   id: string;
   title: string;
@@ -47,7 +50,7 @@ const Entry = (props: EntryProps) => {
       </div>
 
       <div className="ml-2 flex items-center justify-center">
-        <i className="ri-more-2-fill ri-lg"></i>
+        <EditDeleteModal id={props.id} />
       </div>
     </section>
   );

@@ -23,6 +23,11 @@ const countdownStore = (set: any) => ({
       countdowns: [...state.countdowns, newCountdown],
     }));
   },
+  deleteCountdown: (id: string) => {
+    set((state: State) => ({
+      countdowns: state.countdowns.filter((cd) => cd.id !== id),
+    }));
+  },
 });
 
 const useCountdownStore = create(
