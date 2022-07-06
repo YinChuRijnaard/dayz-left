@@ -26,7 +26,7 @@ const App = () => {
   });
 
   return (
-    <main className="min-w-max p-1">
+    <main className="h-screen min-w-max bg-[#fcf0e5] p-1">
       <div className="flex items-center justify-between">
         <Heading size="lg">Your countdowns</Heading>
         <EntryModal />
@@ -34,11 +34,17 @@ const App = () => {
 
       <br />
 
-      <div className="space-y-1">
+      <div className="space-y-1 pb-16">
         {countdowns.length > 0 ? (
           countdownsMapped
         ) : (
-          <Heading size="lg">Add your first countdown</Heading>
+          <div className="flex flex-col items-center justify-center space-y-8">
+            <Heading size="lg">Add your first countdown</Heading>
+            <iframe
+              src="https://giphy.com/embed/dNgK7Ws7y176U"
+              className="pointer-events-none h-full w-full"
+            ></iframe>
+          </div>
         )}
       </div>
 

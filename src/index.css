@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply h-screen w-screen select-none overflow-x-hidden;
+    @apply h-screen w-screen select-none overflow-x-hidden bg-slate-500;
   }
 }
