@@ -40,11 +40,11 @@ const EntryModal = () => {
   };
 
   const handleSubmit = () => {
-    if (entry.title.length > 0) {
+    if (entry.title.length > 0 && entry.date && entry.color) {
       addCountdown(entry);
       onClose();
     } else {
-      toast.error("Title is empty");
+      toast.error("Please fill out all the details");
     }
   };
 
