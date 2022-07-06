@@ -37,7 +37,6 @@ const EntryModal = () => {
         [e.target.name]: e.target.value,
       };
     });
-    console.log(entry);
   };
 
   const handleSubmit = () => {
@@ -83,13 +82,13 @@ const EntryModal = () => {
             <div>
               <FormLabel htmlFor="color">Color</FormLabel>
               <Select name="color" onChange={handleChange} placeholder="Select">
-                <option value="#4299E1">Blue</option>
-                <option value="#48BB78">Green</option>
-                <option value="#ED8936">Orange</option>
-                <option value="#ED64A6">Pink</option>
-                <option value="#9F7AEA">Purple</option>
-                <option value="#F56565">Red</option>
-                <option value="#ECC94B">Yellow</option>
+                <option value="bg-blue-400">Blue</option>
+                <option value="bg-green-400">Green</option>
+                <option value="bg-orange-400">Orange</option>
+                <option value="bg-pink-400">Pink</option>
+                <option value="bg-purple-400">Purple</option>
+                <option value="bg-red-400">Red</option>
+                <option value="bg-yellow-400">Yellow</option>
               </Select>
             </div>
 

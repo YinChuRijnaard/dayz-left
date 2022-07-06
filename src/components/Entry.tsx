@@ -11,13 +11,14 @@ interface EntryProps {
   id: string;
   title: string;
   date: string;
+  color: string;
 }
 
 const Entry = (props: EntryProps) => {
   const [days, hours, minutes, seconds] = useCountdown(props.date);
 
   return (
-    <section className="flex rounded bg-red-400 p-2 text-white">
+    <section className={`flex rounded p-2 text-white ${props.color}`}>
       <div>
         <Heading size="lg">{props.title}</Heading>
         <Text fontSize="sm">{props.date}</Text>

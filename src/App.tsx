@@ -14,7 +14,15 @@ const App = () => {
   const { countdowns } = useCountdownStore();
 
   const countdownsMapped = countdowns.map((cd) => {
-    return <Entry key={cd.id} id={cd.id} title={cd.title} date={cd.date} />;
+    return (
+      <Entry
+        key={cd.id}
+        id={cd.id}
+        title={cd.title}
+        date={cd.date}
+        color={cd.color}
+      />
+    );
   });
 
   return (
